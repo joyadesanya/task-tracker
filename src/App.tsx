@@ -1,5 +1,6 @@
 import { useState } from "react";
 import TaskList from "./components/TaskList";
+import TaskFilter from "./components/TaskFilter";
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -22,11 +23,23 @@ const App = () => {
       status: "Completed",
     },
   ]);
+
+  const [selectedcategory, setSelectedCategory] = useState("");
+
+  const visibleTasks = selectedcategory
+    ? tasks.filter((task) => task.category === selectedcategory)
+    : tasks;
+
   return (
-    <TaskList
-      tasks={tasks}
-      onDelete={(id) => setTasks(tasks.filter((task) => task.id !== id))}
-    />
+    <>
+      <TaskFilter
+        onSelectCategory={(category) => setSelectedCategory(category)}
+      />
+      <TaskList
+        tasks={visibleTasks}
+        onDelete={(id) => setTasks(tasks.filter((task) => task.id !== id))}
+      />
+    </>
   );
 };
 
