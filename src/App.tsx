@@ -10,19 +10,16 @@ const App = () => {
       id: 1,
       description: "Finish reading React.js Documentation",
       category: "Learning",
-      status: "Completed",
     },
     {
       id: 2,
       description: "Do a 30-minute workout session",
       category: "Fitness",
-      status: "Ongoing",
     },
     {
       id: 3,
       description: "Complete and submit the weekly coding challenge",
       category: "Work",
-      status: "Completed",
     },
   ]);
 
@@ -35,7 +32,11 @@ const App = () => {
   return (
     <>
       <Box>
-        <TaskForm />
+        <TaskForm
+          onSubmit={(newTask) =>
+            setTasks([...tasks, { ...newTask, id: tasks.length + 1 }])
+          }
+        />
         <TaskFilter
           onSelectCategory={(category) => setSelectedCategory(category)}
         />

@@ -24,7 +24,11 @@ const schema = z.object({
 
 type TaskFormData = z.infer<typeof schema>;
 
-const TaskForm = () => {
+interface Props {
+  onSubmit: (data: TaskFormData) => void;
+}
+
+const TaskForm = ({ onSubmit }: Props) => {
   const {
     handleSubmit,
     register,
@@ -36,7 +40,7 @@ const TaskForm = () => {
       <Text padding="10px" fontSize="md">
         Add a new task
       </Text>
-      <form onSubmit={handleSubmit((data) => console.log(data))}>
+      <form onSubmit={handleSubmit(onSubmit)}>
         <FormControl
           padding="10px"
           marginBottom={3}

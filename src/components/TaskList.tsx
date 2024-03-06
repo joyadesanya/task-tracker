@@ -14,7 +14,6 @@ interface Task {
   id: number;
   description: string;
   category: string;
-  status: string;
 }
 
 interface Props {
