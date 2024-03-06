@@ -1,6 +1,7 @@
 import { useState } from "react";
 import TaskList from "./components/TaskList";
 import TaskFilter from "./components/TaskFilter";
+import { Box } from "@chakra-ui/react";
 
 const App = () => {
   const [tasks, setTasks] = useState([
@@ -32,13 +33,15 @@ const App = () => {
 
   return (
     <>
-      <TaskFilter
-        onSelectCategory={(category) => setSelectedCategory(category)}
-      />
-      <TaskList
-        tasks={visibleTasks}
-        onDelete={(id) => setTasks(tasks.filter((task) => task.id !== id))}
-      />
+      <Box>
+        <TaskFilter
+          onSelectCategory={(category) => setSelectedCategory(category)}
+        />
+        <TaskList
+          tasks={visibleTasks}
+          onDelete={(id) => setTasks(tasks.filter((task) => task.id !== id))}
+        />
+      </Box>
     </>
   );
 };
