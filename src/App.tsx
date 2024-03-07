@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <>
-      <Box>
+      <Box width="100%">
         <TaskForm
           onSubmit={(newTask) =>
             setTasks([...tasks, { ...newTask, id: tasks.length + 1 }])
@@ -40,7 +40,6 @@ const App = () => {
         <TaskFilter
           onSelectCategory={(category) => setSelectedCategory(category)}
         />
-
         <TaskList
           tasks={visibleTasks}
           onDelete={(id) => setTasks(tasks.filter((task) => task.id !== id))}
