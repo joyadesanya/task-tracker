@@ -4,7 +4,6 @@ import {
   FormErrorMessage,
   Input,
   Select,
-  Text,
   Button,
 } from "@chakra-ui/react";
 import { useForm } from "react-hook-form";
@@ -37,27 +36,20 @@ const TaskForm = ({ onSubmit }: Props) => {
 
   return (
     <>
-      <Text padding="10px" fontSize="md">
-        Add a new task
-      </Text>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <FormControl
-          padding="10px"
-          marginBottom={3}
-          isInvalid={!!errors.description}
-        >
+        <FormControl mb={5} isInvalid={!!errors.description}>
           <FormLabel htmlFor="description">Description</FormLabel>
-          <Input id="description" {...register("description")} />
+          <Input
+            placeholder="Add a new task"
+            id="description"
+            {...register("description")}
+          />
           <FormErrorMessage>
             {errors.description && errors.description.message}
           </FormErrorMessage>
         </FormControl>
 
-        <FormControl
-          padding="10px"
-          marginBottom={3}
-          isInvalid={!!errors.category}
-        >
+        <FormControl mb={5} isInvalid={!!errors.category}>
           <FormLabel htmlFor="category">Category</FormLabel>
           <Select
             variant="filled"
@@ -73,7 +65,7 @@ const TaskForm = ({ onSubmit }: Props) => {
           </FormErrorMessage>
         </FormControl>
 
-        <Button ml="10px" mb="10px" colorScheme="whatsapp" type="submit">
+        <Button mb={5} colorScheme="whatsapp" type="submit">
           Submit
         </Button>
       </form>

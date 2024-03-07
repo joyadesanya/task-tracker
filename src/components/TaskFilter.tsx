@@ -8,7 +8,6 @@ interface Props {
 const TaskFilter = ({ onSelectCategory }: Props) => {
   return (
     <Select
-      padding="10px"
       placeholder="All Categories"
       mb={10}
       onChange={(e) => onSelectCategory(e.target.value)}

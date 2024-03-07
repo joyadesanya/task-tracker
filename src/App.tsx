@@ -1,7 +1,7 @@
 import { useState } from "react";
 import TaskList from "./components/TaskList";
 import TaskFilter from "./components/TaskFilter";
-import { Box } from "@chakra-ui/react";
+import { Box, Heading } from "@chakra-ui/react";
 import TaskForm from "./components/TaskForm";
 
 const App = () => {
@@ -31,6 +31,9 @@ const App = () => {
 
   return (
     <>
+      <Heading as="h1" mb={5}>
+        Task Tracker
+      </Heading>
       <Box width="100%">
         <TaskForm
           onSubmit={(newTask) =>
